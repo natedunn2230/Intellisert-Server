@@ -1,5 +1,5 @@
 from app import app
-import light_controller
+from app import light_controller
 
 @app.route('/')
 def home():
@@ -8,10 +8,10 @@ def home():
 @app.route('/light/<action>')
 def increase_flicker(action):
    if action == 'on':
-   	light_controller.turn_on()
-	return "light activated"
+       light_controller.turn_on()
+       return "light activated"
    elif action == 'off':
-	light_controller.turn_off()
-	return "light de-activated"
+       light_controller.turn_off()
+       return "light de-activated"
    else:
-        return 'unknown command \"' + action +  '\"'
+       return 'unknown command \"' + action +  '\"'
