@@ -1,14 +1,17 @@
 from app import app
+import light_controller
 
 @app.route('/')
 def home():
-    return "welcome to basic server"
+    return "welcome to basic server. Type 192.168.0.21:5000/light<action> (on, off) to control light"
 
-@app.route('/increase')
-def increase_flicker():
-   return "this endpoint will increase light flicker"
-
-@app.route('/decrease')
-def decrease_flicker():
-  return "this endpoint will decrease light flicker"
-
+@app.route('/light/<action>')
+def increase_flicker(action):
+   if action == 'on':
+   	light_controller.turn_on()
+	return "light activated"
+   elif action == 'off':
+	light_controller.turn_off()
+	return "light de-activated"
+   else:
+        return 'unknown command \"' + action +  '\"'
