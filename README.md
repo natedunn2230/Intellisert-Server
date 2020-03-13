@@ -1,5 +1,6 @@
 # Intellisert Server
-#### Nate Dunn
+#### Group 14
+#### CEG-4981
 Flask Server for handling requests to drive the Intellisert device.
 
 #### Running Locally
