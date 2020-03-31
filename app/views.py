@@ -13,7 +13,10 @@ def home():
 # LIGHT ROUTES
 @app.route('/light/power', methods=["POST"])
 def light():
-    
+    '''
+        Accepts boolean 'power' and dispatches the light controller
+        to either turn the light on or off
+    '''
     if request.is_json:
 
         data = request.get_json()
@@ -22,12 +25,19 @@ def light():
         try:
             power = data["power"]
             ## Do light controller stuff
-            
+
+            if power == "on":
+                light_controller.turn_on()
+            elif power == "off":
+                light_controller.turn_off()
+            else:
+                raise Exception('invalid value')
+
             return jsonify({"msg": "success"}), 200
         
         except Exception as E:
             print(E)
-            return jsonify({"msg": "Bad request. Expecting Key 'power'"}), 400
+            return jsonify({"msg": "Bad request. Expecting Key 'power' with Value 'on | off'"}), 400
     
 
     return jsonify({"msg": "Bad request. Expecting application/json content"}), 400
