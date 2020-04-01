@@ -45,11 +45,11 @@ def light_power():
             else:
                 raise Exception('invalid value')
 
-            return jsonify({"msg": "success"}), 200
+            return jsonify({"power": power}), 200
         
         except Exception as E:
             print(E)
-            return jsonify({"msg": "Bad request. Expecting Key 'power' with Value 'on | off'"}), 400
+            return jsonify({"power": "Bad request. Expecting Key 'power' with Value 'on | off'"}), 400
     
 
-    return jsonify({"msg": "Bad request. Expecting application/json content"}), 400
+    return jsonify({"power": "Bad request. Expecting application/json content"}), 400
