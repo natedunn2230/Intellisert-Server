@@ -1,7 +1,7 @@
 # Intellisert Server
 #### Group 14
 #### CEG-4981
-Flask Server for handling requests to drive the Intellisert device.
+Flask Server for handling requests to drive the Intellisert device. CEG-4981
 
 ### Running Locally
 1. Install Virtualenv: `pip install virtualenv`
